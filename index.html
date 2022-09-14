@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Crud</title>
+    <!-- fontAwsom -->
+     <link rel="stylesheet" href="css/all.min.css">
+     <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- css file -->
+    <link rel="stylesheet" href="css/style.css">
+   
+</head>
+
+<body>
+<section class="w-75 m-auto">
+<h2 class="text-center pt-2">crud operation</h2>
+    <div class="w-75 m-auto py-4">
+    <div class="form-group">
+                <label for="productName">productName :</label>
+                <input type="text" class="form-control allInputs" id="productName">
+                <div class="alert p-0  d-none mb-3 alert-danger  " id="alertName"> </div>
+            </div>
+
+            <div class="form-group">
+                <label for="productPrice">productPrice :</label>
+                <input  type="number" class="form-control allInputs" id="productPrice">
+                <div class=" alert p-0  d-none alert-danger mb-3 " id="alertPrice"> </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="productCategory">productCategory :</label>
+                <input type="text" class="form-control allInputs" id="productCategory">
+                <div class=" alert p-0  d-none alert-danger mb-3" id="alertCategory"> </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="productDesc">productDesc :</label>
+                <textarea style="resize: none;" type="text" class="form-control allInputs" id="productDesc"></textarea>
+                <div class=" alert p-0  d-none alert-danger mb-3 " id="alertDesc"> </div>
+            </div>
+
+            <button  onclick="addProduct()" class="btn btn-info " id="add">Add Product</button>
+            
+             <button onclick="cancel()" class="btn btn-danger  cancel " id="cancelUpdate">Cancel</button> 
+     
+    </div>
+
+    <div  class="my-5  ">
+        
+        <input type="text" id="search" class="form-control w-75 m-auto rounded-pill  fas fa-search "  placeholder=" &#xF002;   Search "  >
+       
+    </div>
+
+        <table class="table text-center w-75 m-auto py-3 col-sm-4">
+            <thead>
+                <th>index</th>
+                <th>Name </th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Desc</th>
+                <th>update</th>
+                <th>delete</th>
+            </thead>
+            <tbody id="tableBody">
+
+
+            </tbody>
+
+        </table>
+
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+  
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

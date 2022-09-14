@@ -1,0 +1,16 @@
+/* to display lens for search input */
+::placeholder{
+    font-weight: 600 ;
+    color: rgb(204, 202, 202) !important;
+} 
+:-ms-input-placeholder{
+    font-weight: 600 ;
+    color: rgb(204, 202, 202) !important;
+}
+body{
+    background-image: url('question-mark1.jpg');
+}
+section{
+    background-color:#cac8c8;
+    width:auto;
+}
