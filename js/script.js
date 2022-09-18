@@ -35,7 +35,7 @@ else {
  // Add new product
 function addProduct() {
 
-    if ( checkInputs()==true )
+    if ( checkInputs() && validateProductName())
      {
         let product = 
         {
@@ -48,7 +48,7 @@ function addProduct() {
             productsContainer.push(product);
         }
         else {
-        // at position (mainindex) remove 1 item and add product
+        // at position (mainindex) remove 1 item and add product object above
             productsContainer.splice(mainIndex,1,product)
             addBtn.innerHTML = "Add Product"
             addBtn.style.backgroundColor = " #17a2b8 ";
@@ -59,43 +59,46 @@ function addProduct() {
         displayProducts();
         clearForm();
         removeAlertBox()
-        // document.getElementById("alertName").classList.add('d-none')  
+       
         
      }
-     else if(productNameInput.value =="" && productPriceInput.value!= "" && productCategoryInput.value != "" &&productDescInput.value != "")
-     {
-        document.getElementById("alertName").classList.remove('d-none')  
-        document.getElementById("alertName").innerHTML = "product name is required"; 
-        
-         }
-    else if(productPriceInput.value == "" && productNameInput.value != "" && productCategoryInput.value != "" && productDescInput.value != "")
-    {
-        document.getElementById("alertPrice").classList.remove('d-none') 
-        document.getElementById("alertPrice").innerHTML = "price is required"; 
-    }
-    else if(productCategoryInput.value == "" && productNameInput.value != "" && productPriceInput.value != "" && productDescInput.value != "")
-    {
-        document.getElementById("alertCategory").classList.remove('d-none')
-        document.getElementById("alertCategory").innerHTML = "product describtion  is required";
-    }
-    else if(productDescInput.value == "" && productNameInput.value != "" && productPriceInput.value != "" && productCategoryInput.value != "")
-    {
-        document.getElementById("alertDesc").classList.remove('d-none')  
-        document.getElementById("alertDesc").innerHTML = "product category is required";
-    }
+     else{
+        if(productNameInput.value =="")
+        {
+           document.getElementById("alertName").classList.remove('d-none')  
+           document.getElementById("alertName").innerHTML = "product name is required"; 
+        }
+        else if(!validateProductName()){
+            document.getElementById("alertName").classList.remove('d-none')  
+            document.getElementById("alertName").innerHTML = "product name is in-valid"; 
 
-   
-        else 
-        {    
-            document.getElementById("alertName").classList.remove('d-none')       
-            document.getElementById("alertName").innerHTML = "product name is required"; 
-            document.getElementById("alertPrice").classList.remove('d-none') 
-            document.getElementById("alertPrice").innerHTML = "price is required"; 
-            document.getElementById("alertCategory").classList.remove('d-none') 
-            document.getElementById("alertCategory").innerHTML = "product category is required"; 
-            document.getElementById("alertDesc").classList.remove('d-none')  
-            document.getElementById("alertDesc").innerHTML = "product describtion is required"; 
-    } } 
+        }else{
+            document.getElementById("alertName").classList.add('d-none')  
+        }
+       if(productPriceInput.value == "" )
+       {
+           document.getElementById("alertPrice").classList.remove('d-none') 
+           document.getElementById("alertPrice").innerHTML = "price is required"; 
+       }else{
+        document.getElementById("alertPrice").classList.add('d-none') 
+       }
+      if(productCategoryInput.value == "" )
+       {
+           document.getElementById("alertCategory").classList.remove('d-none')
+           document.getElementById("alertCategory").innerHTML = "product describtion  is required";
+       }else{
+        document.getElementById("alertCategory").classList.add('d-none')
+       }
+      if(productDescInput.value == "" )
+       {
+           document.getElementById("alertDesc").classList.remove('d-none')  
+           document.getElementById("alertDesc").innerHTML = "product category is required";
+       }else{
+        document.getElementById("alertDesc").classList.add('d-none')  
+       }
+     }
+
+ } 
         
 
 
@@ -107,6 +110,20 @@ function checkInputs() {
     }
    
     else {
+        return false;
+    }
+}
+
+
+// Check validation for Prouduct Name 
+function validateProductName() {
+    let regex = /^[A-Z][a-z]{3,8}$/;
+
+    if (regex.test(productNameInput.value) == true) {
+        return true;
+    }
+    else {
+        errors = `<p>product name is in-valid</p>`;
         return false;
     }
 }
