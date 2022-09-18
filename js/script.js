@@ -70,7 +70,7 @@ function addProduct() {
         }
         else if(!validateProductName()){
             document.getElementById("alertName").classList.remove('d-none')  
-            document.getElementById("alertName").innerHTML = "product name is in-valid"; 
+            document.getElementById("alertName").innerHTML = "The name must be start with uppercase"; 
 
         }else{
             document.getElementById("alertName").classList.add('d-none')  
