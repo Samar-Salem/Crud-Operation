@@ -9,6 +9,7 @@
 }
 body{
     background-image: url('question-mark1.jpg');
+    background-repeat: no-repeat;
 }
 section{
     background-color:#cac8c8;
